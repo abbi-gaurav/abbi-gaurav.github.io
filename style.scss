@@ -283,52 +283,6 @@ footer {
   text-align: center;
 }
 
-.share-buttons-label {
-        color: #ccc;
-        font-weight: bold;
-}
-
-.custom-social-buttons
-{
-        margin-bottom: 120px;
-}
-
-.custom-social-button
-{
-        height: 30px; 
-        border-left: 1px solid #ccc;
-        width: 32%; 
-        text-align: center; 
-        float: left;
-}
-
-.custom-social-button.googleplus
-{
-        border-right: 1px solid #ccc; 
-        float: right;
-}
-
-.custom-social-button a
-{
-        vertical-align: middle;
-        color: #ccc;
-        font-weight: bold;
-}
-
-.custom-social-button a i
-{
-        display: block;
-        width: 100%;
-        height: 100%;
-        line-height: 30px;
-}
-.custom-social-button a:hover
-{
-        vertical-align: middle;
-        color: #555;
-        font-weight: bold;
-}
-
 // Settled on moving the import of syntax highlighting to the bottom of the CSS
 // ... Otherwise it really bloats up the top of the CSS file and makes it difficult to find the start
 
