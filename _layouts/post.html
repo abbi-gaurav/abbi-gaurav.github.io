@@ -12,6 +12,21 @@ layout: default
   <div class="date">
     Written on {{ page.date | date: "%B %e, %Y" }}
   </div>
+  
+  <div class="custom-social-buttons">                 
+        <div class="share-buttons-label">
+                <span>Tell your friends</span>
+        </div>
+        <div class="custom-social-button twitter">
+                <a id="twitter-link" href="#"><i class="socicon-twitter-bird"></i></a>
+        </div>
+        <div class="custom-social-button linkedin">
+                <a id="linkedin-link" href="#"><i class="socicon-linkedin"></i></a>
+        </div>
+        <div class="custom-social-button googleplus">
+                <a id="googleplus-link" href="#"><i class="socicon-gplus"></i></a>
+        </div>
+ </div>
 
-  {% include disqus.html %}
+  {% include disqus.html disqus_identifier=page.disqus_identifier %}
 </article>
