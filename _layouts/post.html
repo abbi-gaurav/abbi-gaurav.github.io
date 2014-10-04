@@ -13,6 +13,18 @@ layout: default
     Written on {{ page.date | date: "%B %e, %Y" }}
   </div>
   
+  {% assign tagStr = '' %}
+    {% capture url %}{{ site.url }}{{ page.url }}{% endcapture %}
+    {% if page.shortUrl != null %}
+        {% assign url = page.shortUrl %}
+        {% for tag in page.tags %}
+            {% capture len %}{{ tagStr | append: tag | append: page.title | append: page.subtitle }}{% endcapture %}
+            {% if len.size < 100 %}
+            {% capture tagStr %}{{ tagStr }},{{ tag }}{% endcapture %}
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+  <hr />
   <p class="social-share-text">You should always share the good things with your friends!</p>
     <div class="social-share">
         <a class="social-share-element social-twitter" href="https://twitter.com/intent/tweet?text={% if page.subtitle != null %}{{ page.subtitle }} {% endif %}{{ page.title }}&url={{ url }}&via=gaurav_abbi&hashtags={{ tagStr }}" target="_blank" title="Share this post on Twitter" onclick="_gaq.push(['_trackEvent', 'Share', 'Twitter', window.location.pathname]);"></a>
