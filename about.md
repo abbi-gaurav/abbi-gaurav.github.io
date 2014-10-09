@@ -4,12 +4,10 @@ title: About
 permalink: /about/
 ---
 
-Some information about you!
-
 ### More Information
 
-A place to include any other types of information that you'd like to include about yourself. 
+I am a professional Java developer, exploring functional paradigms, experimenting with scala, haskell, akka, agile enthusiast, understanding human aspects of software engineering and having fun while doing all this. Apart from coding, I also play Table Tennis, like to watch TV Series like BBT, House M.D. and learn Deutsch.
 
 ### Contact me
 
-[email@domain.com](mailto:email@domain.com)
+[abbi.gaurav@gmail.com](mailto:abbi.gaurav@gmail.com)
