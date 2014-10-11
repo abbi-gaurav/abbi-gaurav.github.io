@@ -71,9 +71,9 @@ This function takes takes two parameters:
 1.  **function**, this is a function when executed returns a value of type O (which can be any type)
 2.  **numRuns**, this is number of iterations for the computation to arrive at the statitics, its default value is 5
 
-The important thing to note here is that function is a **call-by-name** parameter, this means, it will be evaluated lazily when required or called. The functions body is self-explanatory where it performs the computation **numRuns** times plus 5, which is later dropped. This extra 5 computation calls let the JVM perform any optimizations and also avoid taking into account intial warm-ups. I chooe 5, aribitratily, it can be any number based on the requirements. 
+The important thing to note here is that function is a **call-by-name** parameter, this means, it will be evaluated lazily when required or called. The functions body is self-explanatory where it performs the computation **numRuns** times plus 5, which is later dropped. This extra 5 computation calls let the JVM perform any optimizations and also avoid taking into account intial warm-ups. I chose a small number, 5. It can be any number based on the requirements. 
 
-Two basic statistical values are calclulated:
+Two statistical values of interest are calclulated:
 
 * Average : here list functions and combinators such as map, drop and reduceLeft come handy
 
