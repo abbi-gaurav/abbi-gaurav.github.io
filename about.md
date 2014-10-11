@@ -1,12 +1,10 @@
 ---
 layout: page
-title: About
+title: About myself
 permalink: /about/
 ---
 
-### More Information
-
-I am a professional Java developer, exploring functional paradigms, experimenting with scala, haskell, akka, agile enthusiast, understanding human aspects of software engineering and having fun while doing all this. Apart from coding, I also play Table Tennis, like to watch TV Series like BBT, House M.D. and learn Deutsch.
+I am a professional Java developer, exploring functional paradigms, learning scala, haskell, akka, play and having fun while doing all this. I believe in TDD, agile programming, writing concise and human readable code. Apart from coding, I also play Table Tennis, like to watch TV Series like BBT, House M.D. and learn Deutsch.
 
 ### Contact me
 
