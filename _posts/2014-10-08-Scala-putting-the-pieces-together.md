@@ -1,6 +1,6 @@
 ---
 layout: post
-title: An attempt to use various features of scala as a functional and objet-oriented language
+title: Exploring various features of scala as a functional and objetc-oriented language
 category: scala
 tags: scala functional-programming
 ---
