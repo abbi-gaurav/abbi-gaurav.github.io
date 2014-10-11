@@ -1,17 +1,17 @@
 ---
 layout: post
-title: Exploring various features of scala as a functional and objetc-oriented language
+title: Exploring various features of scala as a functional and object-oriented language
 category: scala
 tags: scala functional-programming
 ---
 
-Scala is a interesting language as it lets developers write code in both functional and object-oriented paradigms. While I have been learning functional programming as well as scala, everyday I come across features that lets me solve problems in a concise fashion which otherwise would have required a lot of boiler-plate code in a language like Java. 
+Scala is a interesting language as it lets developers write code in both functional and object-oriented paradigms. While I have been learning functional programming as well as scala, everyday, I come across features that lets me solve problems in a concise fashion which otherwise would have required a lot of boiler-plate code in a language like Java. 
 
-That being said, it is always good to write code that uses various concepts of a language together to solve a problem. Not only it helps in revising whatever one has learnt, but also improves the understanding of those concepts. This is quite similiar to learning a new tool, driving or any other new skill set. More we do it in different interesting ways, better we understand.
+That being said, it is always good to write code that uses various concepts of a language together to solve a problem. Not only it helps in revising/recollecting whatever one has learnt, but also improves the understanding of those concepts. This is quite similiar to learning a new tool or driving a car. More we do it in different interesting ways, better we understand.
 
-This blog provides a solution to a very common, but necessary requirement, finding the performance or compuatation time of a function or an algorithm. Using higher order functions, parametrzation, call-by-name and other features, I have tried to make it generic enough to be used for any function that computes a value.
+This blog provides a solution to a very common, but necessary requirement, finding the performance or compuatation time of a function or an algorithm. Using higher order functions, parameterization, call-by-name and other features, I have tried to make it generic enough to be used for any function that computes a value.
 
-I will provide the code first, then decompose the various parts. Here it goes
+I will provide the code first, then decompose the various parts. Here it goes:
 
 {% highlight scala linenos %}
 
@@ -66,12 +66,12 @@ def getStats[O](f: => O, n: Int = 5): Stats[O] {
 }
 {% endhighlight %}
 
-This function takes takes two parameter:
+This function takes takes two parameters:
 
-1.  **function**, this is a function that when executed returns a value of type O (which can be any type)
-2.  **numRuns**, this is number of iterations for which to call the computation to arrive at the statitics, its default value is 5
+1.  **function**, this is a function when executed returns a value of type O (which can be any type)
+2.  **numRuns**, this is number of iterations for the computation to arrive at the statitics, its default value is 5
 
-The important thing to note here is that function is a **call-by-name** parameter, this means, it will be evaluated lazily when required or called. The functions body is self explanatory where it performs the computation **numRuns** times plus 5, which is later dropped. This extra 5 computation calls let the JVM perform any optimizations and also avoid taking into account intial warm-ups. I just choose 5, but it can be any number based on requirements. 
+The important thing to note here is that function is a **call-by-name** parameter, this means, it will be evaluated lazily when required or called. The functions body is self-explanatory where it performs the computation **numRuns** times plus 5, which is later dropped. This extra 5 computation calls let the JVM perform any optimizations and also avoid taking into account intial warm-ups. I chooe 5, aribitratily, it can be any number based on the requirements. 
 
 Two basic statistical values are calclulated:
 
@@ -97,7 +97,7 @@ case class Stats[T](result: T, averageTime: Double, stdDev: Double) {
 {% endhighlight %}
 case classes are useful for defining immutable types which can also be pattern matched. Apart from that, they provide implementations of hashcode and equals methods based on their member fields. This obviates a lot of boiler plate code.
 
-While solving various computational problems in scala or wrting two different versions of the same computation or even tweaking my algorithm, this code has helped me a lot to reason about the performance of my code. This acts as a one stop destination for all the functions I write and then need to see how they perform. The thing I liked about the higher order functions is they let us compose functions without mandating any dependency or coupling between them. In this case, any function I write does not need to have any knowledge or relation in order to be able to called for statistical computation.
+While solving various computational problems in scala or writing two different versions of the same computation or even tweaking my algorithm, this code has helped me a lot to reason about the performance of my code. This acts as a one stop destination for all the functions I write and then check their performance. The thing I liked about the higher order functions is they let us compose functions without mandating any dependency or coupling between them. In this case, any function I write does not need to have any knowledge or relation in order to be able to called for statistical computation.
 
 On the other hand, using the case class (which is akin to defining an Immutable Class in Java, but far less verbose) helps me return the result and stats in an api-friendly way.
 
@@ -107,4 +107,4 @@ PerfMeasures.getStats(distinctPowers(2 to 100), 10) //distinctPowers(2 to 100)
 PerfMeasures.getStats(sum) //sum
 PerfMeasures.getStats(numOfCircularPrimes(), 10) //numOfCircularPrimes()
 {% endhighlight %}
-Needless to say, it can be further refined and made concise. The intent here is to help readers as well as myself to appreciate the richness of scala and use it to write less code and reuse more :)
+Needless to say, it can be further refined and made more concise. The intent here is to help readers as well as myself to appreciate the richness of scala and use it to write less code and reuse more  of it! :)
