@@ -3,6 +3,7 @@ layout: post
 title: Exploring high order functions and other functional concepts for a simple use case
 category: scala
 tags: scala functional-programming
+
 ---
 
 Scala is a interesting language as it lets developers write code in both functional and object-oriented paradigms. While I have been learning functional programming as well as scala, everyday, I come across features that lets me solve problems in a concise fashion which otherwise would have required a lot of boiler-plate code in a language like Java. 
