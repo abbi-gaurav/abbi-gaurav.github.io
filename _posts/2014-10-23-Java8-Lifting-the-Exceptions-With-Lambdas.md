@@ -87,6 +87,3 @@ Full code is available as a gist [BankAPIClient.java](https://gist.github.com/ab
 
 
 Please provide any suggestions which can help me make the content better since I am a novice as far as blogging is concerned :)
-
-
-
