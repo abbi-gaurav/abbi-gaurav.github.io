@@ -6,7 +6,7 @@ tags: java functional-programming
 
 ---
 
-Lambdas in Java 8 is a nice feature and let the developers write code in a concise and elegant way. It lets one think about the structure of a program functionally. I am writing series of posts that explore functional paradigms that one can apply while writing code in Java. This is first of those posts and I hope to end up writing a lot of them.
+Lambdas in Java 8 is a nice feature and lets the developers write code in a concise and elegant way. It lets one think about the structure of a program functionally. I am writing series of posts that explore functional paradigms that one can apply while writing code in Java. This is first of those posts and I hope to end up writing a lot of them.
 
 Almost all the Java Projects are written in a modular fashion, where the product is split into various modules and they interact with each other via APIs. Normally those structures follow two paths:
 
