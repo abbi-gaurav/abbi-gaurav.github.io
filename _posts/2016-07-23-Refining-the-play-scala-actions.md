@@ -37,7 +37,7 @@ Why not take away all this common work and refine the action definition to its b
 
 {% highlight scala linenos %}
 def asyncFormAction[T](form: Form[T])(api: (T, CommonHeaders.type) => Future[Result]): Action[AnyContent] = async { implicit request: Request[AnyContent] =>
-   x form.bindFromRequest().fold({
+   form.bindFromRequest().fold({
       (errors: Form[T]) => Future.successful(handleErrors(errors))
     }, {
       (requestObj: T) => api(requestObj, CommonHeaders)
