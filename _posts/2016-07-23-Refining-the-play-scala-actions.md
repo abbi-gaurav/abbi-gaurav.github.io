@@ -33,7 +33,7 @@ Ok(Json.toJson(horcrux))
 
 where we interacting with the domain service layer and then sending back the result from there. The rest of the code is mostly about a common pattern which binds the json body with the model object and proceeds further or fails depending upon whether request is valid or not.
 
-Why not take away all this common work and refine the action definition to its bare necessities. For this, of course, we put this boilerplate code in a common function. One approach we could follow is like this
+Why not take away all this common work and refine the action definition to its bare necessities. For this, of course, we put this boilerplate code in a common function. One approach we could follow is to create a generic action that can work with different forms
 
 {% highlight scala linenos %}
 def asyncFormAction[T](form: Form[T])(api: (T, CommonHeaders.type) => Future[Result]): Action[AnyContent] = async { implicit request: Request[AnyContent] =>
@@ -47,7 +47,18 @@ def asyncFormAction[T](form: Form[T])(api: (T, CommonHeaders.type) => Future[Res
 private def handleErrors[T](errors: Form[T]): Result = BadRequest(errors.errorsAsJson)
 {% endhighlight %}
 
-With the above code, our action defintion in the controller is shortened to this
+and a generic result generator that can take scala objects which are json writable
+
+{% highlight scala linenos %}
+def toResult[T](either: Either[OpsFailed, T])(onSuccess: T => Result) = either match {
+    case Left(opsFailed) => InternalServerError(toJson(opsFailed))
+    case Right(t) => onSuccess(t)
+}
+
+def toJsonResult[T](either: Either[OpsFailed, T])(implicit writes: Writes[T]) = toResult(either)(x => Ok(toJson(x)))
+{% endhighlight %}
+
+With the above pieces in place, our action defintion in the controller is shortened to this
 
 {% highlight scala linenos %}
 def refined: Action[AnyContent] = asyncFormAction(Location.locationForm)((obj: Location, ch: CommonHeaders.type) => for {
